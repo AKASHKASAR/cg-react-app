@@ -3,6 +3,8 @@ import './App.css';
 import Header from './Header';
 import Footer from './Footer';
 
+// create other components and import them here. 
+
 function App() {
   return (
     <div className="App">
