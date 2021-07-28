@@ -1,22 +1,26 @@
 import React from 'react';
 class MyFileInput extends React.Component {
-  constructor(props) {
-    super()
-    this.curriculum = React.createRef()
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-  handleSubmit(event) {
-    alert(this.curriculum.current.files[0].name)
-    event.preventDefault()
-  }
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="file" ref={this.curriculum} />
-        <input type="submit" value="Submit" />
-      </form>
-    )
-  }
+    constructor(props) {
+        super()
+        this.curriculum = React.createRef()
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    handleSubmit(event) {
+        alert(this.curriculum.current.files[0].name)
+        event.preventDefault()
+    }
+    render() {
+        return (
+            <div>
+                <h1 className="display-1 text-primary">Form Component</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="file" ref={this.curriculum} />
+                    <input type="submit" value="Submit" />
+                </form>
+
+            </div>
+        )
+    }
 }
 export default MyFileInput;
 

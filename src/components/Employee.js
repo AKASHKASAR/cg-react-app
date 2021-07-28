@@ -6,7 +6,7 @@ class Employee extends React.Component {
         super();
         this.state = { name: 'Monu', salary: 10.5 };
     }
-    
+
     increaseSalary = () => {
         this.setState({ salary: this.state.salary + 10 });
     };
@@ -15,6 +15,8 @@ class Employee extends React.Component {
     }
     render() {
         return (<div className="App">
+            <h1 className="display-1 text-primary">Employee Component</h1>
+
             <h1 > Hi! I am {this.state.name} and my salary is {this.state.salary}.</h1>
             <button type="button"
                 onClick={this.increaseSalary} >Increase</button>
