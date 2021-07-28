@@ -1,10 +1,12 @@
 import React from 'react';
 
 class Employee extends React.Component {
+
     constructor() {
         super();
-        this.state = { name: '', salary: 10.5 };
+        this.state = { name: 'Monu', salary: 10.5 };
     }
+    
     increaseSalary = () => {
         this.setState({ salary: this.state.salary + 10 });
     };
@@ -17,7 +19,7 @@ class Employee extends React.Component {
             <button type="button"
                 onClick={this.increaseSalary} >Increase</button>
             <form>
-                <h1 style={{ color: "orange" }} >Data Form</h1>
+                <h1 >Data Form</h1>
                 <p>Name:</p>
                 <input type="text"
                     onChange={evt => this.setMyName(evt)}></input>

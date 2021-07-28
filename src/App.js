@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Welcome from './components/Welcome';
-import MyForm from './components/MyFrom';
+import MyForm from './components/MyForm';
 import Employee from './components/Employee';
 // create other components and import them here. 
 
