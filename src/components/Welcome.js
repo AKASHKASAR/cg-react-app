@@ -2,15 +2,14 @@ import React from 'react';
 
 // Function component 
 
-let fun = () => {return 'fun...'}
+let fun = () => { return 'fun...' }
 
 
 let Welcome = (props) => {
 
     return (
         <div>
-            <h1>Hello, { props.name } </h1>
-            <p> {props.phone} </p>
+            <h1 className="display-1 text-primary">Welcome Component</h1>
             <p> {fun()} </p>
         </div>
     );

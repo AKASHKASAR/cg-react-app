@@ -1,36 +1,60 @@
 import React from 'react';
+import Hello from './Hello';
 
 class Employee extends React.Component {
 
+
+
     constructor() {
         super();
-        this.state = { name: 'Monu', salary: 10.5 };
     }
 
-    increaseSalary = () => {
-        this.setState({ salary: this.state.salary + 10 });
-    };
-    setMyName = (evt) => {
-        this.setState({ name: evt.target.value });
-    }
+
     render() {
-        return (<div className="App">
+        return (<div>
             <h1 className="display-1 text-primary">Employee Component</h1>
-
-            <h1 > Hi! I am {this.state.name} and my salary is {this.state.salary}.</h1>
-            <button type="button"
-                onClick={this.increaseSalary} >Increase</button>
-            <form>
-                <h1 >Data Form</h1>
-                <p>Name:</p>
-                <input type="text"
-                    onChange={evt => this.setMyName(evt)}></input>
-            </form>
+            <Hello></Hello>
         </div>
         );
     }
 }
 export default Employee;
+
+// class Employee extends React.Component {
+
+
+
+//     constructor() {
+//         super();
+//         this.emps = EmployeeService.getHello;
+//         this.state = { name: 'Monu', salary: 10.5 };
+//     }
+
+//     increaseSalary = () => {
+//         this.setState({ salary: this.state.salary + 10 });
+//     };
+//     setMyName = (evt) => {
+//         this.setState({ name: evt.target.value });
+//     }
+//     render() {
+//         return (<div>
+//             <h1 className="display-1 text-primary">Employee Component</h1>
+
+//             <h1 > Hi! I am {this.state.name} and my salary is {this.state.salary}.</h1>
+//             <button type="button"
+//                 onClick={this.increaseSalary} >Increase</button>
+//             <form>
+//                 <h1 >Data Form</h1>
+//                 <p>Name:</p>
+//                 <input type="text"
+//                     onChange={evt => this.setMyName(evt)}></input>
+//             </form>
+//             <p>Hello - {this.emps} </p>
+//         </div>
+//         );
+//     }
+// }
+// export default Employee;
 
 
 
