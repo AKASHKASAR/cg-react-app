@@ -1,9 +1,8 @@
 import React from 'react';
 import Hello from './Hello';
+import MyTable from './MyTable';
 
 class Employee extends React.Component {
-
-
 
     constructor() {
         super();
@@ -13,7 +12,8 @@ class Employee extends React.Component {
     render() {
         return (<div>
             <h1 className="display-1 text-primary">Employee Component</h1>
-            <Hello></Hello>
+            <Hello />
+            {/* <MyTable/> */}
         </div>
         );
     }

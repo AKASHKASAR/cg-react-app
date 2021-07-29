@@ -17,7 +17,7 @@ let handleCallback = (childData) => {
 const App = () => {
   return (
     <div>
-      <Routes />
+      <Routes/>
     </div>
   );
 }
