@@ -1,22 +1,30 @@
 import axios from "axios";
+import { useState } from 'react';
 
+// // pass data from child to parent 
+// // parent - Employee, child - JavaData (this component) 
+// export default function JavaData({ childToParent }) {
+//     let data = 'Sonu';
+//     return (
+//         <div>
+//             <p>data in child {data}</p>
+//             <button onClick={() => childToParent(data)}>Click to pass data from child to parent</button>
+//         </div>
+//     )
+// }
 
-
+let getCall = (event) => {
+    event.childCallBack('Monu');
+    console.log('getCall');
+    event.preventDefault(); // important
+}
 
 // child component of Employee 
 let JavaData = (props) => {
 
-    // props.getCall('Monu');
-
-    let getCall = (event) => {
-        props.childCallBack('Monu');
-        event.preventDefault(); // important
-    }
-    
-    let message = props.parentName;
+    const [data, setData] = useState('');
 
     axios.get('/hello').then((abc) => {
-        // message = abc.data;
         console.log(abc.data);
     });
 
@@ -31,9 +39,8 @@ let JavaData = (props) => {
     return (
         <div>
             <p>Java Data</p>
-            <p>{getCall}</p>
+            <p onLoad={getCall}> </p>
             <p> {props.dataFromParent} </p>
-            {/* <p> {this.message} </p> */}
         </div>
     )
 }

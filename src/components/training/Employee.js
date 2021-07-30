@@ -1,7 +1,22 @@
 import React from 'react';
-import Hello from './Hello';
+import { useState } from 'react';
 import JavaData from './JavaData';
-import MyTable from './MyTable';
+
+// // pass data from child to parent 
+// // parent - Employee (this component), child - JavaData 
+// export default function Employee() {
+//     const [data, setData] = useState('');
+//     const childToParent = (childdata) => {
+//         setData(childdata);
+//     }
+//     return (
+//         <div>
+//             <h1 className="display-1 text-primary">Employee Component</h1>
+//             <p>data in parent {data}</p>
+//             <JavaData childToParent={childToParent} />
+//         </div>
+//     )
+// }
 
 // parent component of JavaData 
 class Employee extends React.Component {
@@ -16,6 +31,7 @@ class Employee extends React.Component {
 
     childCallBack = (chilldInfo) => {
         this.setState({ childName: chilldInfo });
+        console.log('aaaa');
     }
 
 
@@ -23,10 +39,11 @@ class Employee extends React.Component {
         return (<div>
             <h1 className="display-1 text-primary">Employee Component</h1>
             {/* <JavaData dataFromParent={this.state.parentName} ></JavaData> */}
-            <JavaData getCall={this.childCallBack} ></JavaData>
+            <JavaData getCall={this.state.childCallBack} ></JavaData>
+            <p> {this.state.parentName} </p>
+            <p> {this.state.childName} </p>
             {/* <Hello /> */}
             {/* <MyTable/> */}
-            <p> {this.childName} </p>
         </div>
         );
     }
@@ -34,8 +51,6 @@ class Employee extends React.Component {
 export default Employee;
 
 // class Employee extends React.Component {
-
-
 
 //     constructor() {
 //         super();

@@ -15,10 +15,6 @@ import Routes from './components/Routes';
 // 2. employee, hello - for spring boot conneciton 
 
 
-let handleCallback = (childData) => {
-  this.setState({ name: childData })
-}
-
 const App = () => {
   return (
     <div>

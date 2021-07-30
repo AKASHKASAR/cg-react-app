@@ -1,13 +1,5 @@
 import React from 'react';
 import { useTable } from 'react-table';
-import axios from 'axios';
-
-// let data = []; 
-// axios.get(`http://localhost:8084/Employee`)
-//     .then( res => {
-//           data = res;
-//     });
-
 
 const data = [
     { name: 'Sonu', salary: 10.5 },
