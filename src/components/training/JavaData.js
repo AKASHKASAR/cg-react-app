@@ -1,57 +1,39 @@
 import axios from "axios";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-// // pass data from child to parent 
-// // parent - Employee, child - JavaData (this component) 
-// export default function JavaData({ childToParent }) {
-//     let data = 'Sonu';
-//     return (
-//         <div>
-//             <p>data in child {data}</p>
-//             <button onClick={() => childToParent(data)}>Click to pass data from child to parent</button>
-//         </div>
-//     )
-// }
-
-let getCall = (event) => {
-    event.childCallBack('Monu');
-    console.log('getCall');
-    event.preventDefault(); // important
-}
-
-// child component of Employee 
 let JavaData = (props) => {
+    console.log(props);
+    const [empList, setEmpList] = useState([]); // from axios
+    const [emp, setEmp] = useState(''); // from axios 
+    const [parentEmp, setParentEmp] = useState({}); // from props  
+    const [parentEmpHike, setParentEmpHke] = useState(0); // from props 
+    const url = `/Employee/`;
 
-    const [data, setData] = useState('');
+    useEffect(() => {
+        setParentEmp(props.parentEmp);
+        setParentEmpHke(props.parentEmpHike);
 
-    axios.get('/hello').then((abc) => {
-        console.log(abc.data);
-    });
-
-    axios.get('/Employee').then((abc) => {
-        console.log(abc.data.name);
-    });
-
-    axios.get('/Employee/101').then((abc) => {
-        console.log(abc.data);
-    });
+        axios.get(url)
+            .then((response) => {
+                setEmpList(response.data);
+            })
+        axios.get(`${url}/101`)
+            .then((response) => {
+                setEmp(response.data);
+            })
+    }, []);
 
     return (
         <div>
-            <p>Java Data</p>
-            <p onLoad={getCall}> </p>
-            <p> {props.dataFromParent} </p>
+            <p>JavaData Component</p>
+            <p>axios {empList.map(e => <div>{e.name}</div>)}</p>
+            <p>axios {emp.name}</p>
+            <p>child {parentEmp.name}</p>
+            <p> child {parentEmpHike} </p>
         </div>
     )
 }
-
 export default JavaData;
-
-
-
-
-
-
 
 
 
