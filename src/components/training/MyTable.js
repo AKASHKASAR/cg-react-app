@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTable } from 'react-table';
-import '../App.css';
 import axios from 'axios';
 
 // let data = []; 

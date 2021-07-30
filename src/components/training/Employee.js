@@ -1,19 +1,32 @@
 import React from 'react';
 import Hello from './Hello';
+import JavaData from './JavaData';
 import MyTable from './MyTable';
 
+// parent component of JavaData 
 class Employee extends React.Component {
 
     constructor() {
         super();
+        this.state = {
+            parentName: 'Sonu',
+            childName: ''
+        }
+    }
+
+    childCallBack = (chilldInfo) => {
+        this.setState({ childName: chilldInfo });
     }
 
 
     render() {
         return (<div>
             <h1 className="display-1 text-primary">Employee Component</h1>
-            <Hello />
+            {/* <JavaData dataFromParent={this.state.parentName} ></JavaData> */}
+            <JavaData getCall={this.childCallBack} ></JavaData>
+            {/* <Hello /> */}
             {/* <MyTable/> */}
+            <p> {this.childName} </p>
         </div>
         );
     }

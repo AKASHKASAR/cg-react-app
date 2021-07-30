@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from './Login';
 class MyFileInput extends React.Component {
     constructor(props) {
         super()
@@ -17,7 +18,7 @@ class MyFileInput extends React.Component {
                     <input type="file" ref={this.curriculum} />
                     <input type="submit" value="Submit" />
                 </form>
-
+                <Login/>
             </div>
         )
     }
