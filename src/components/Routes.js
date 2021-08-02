@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Employee from './training/Employee';
 import MyForm from './training/MyForm';
 import Home from './training/Home';
@@ -29,7 +29,7 @@ const Routes = () => {
                             <Route path="/form"><MyForm /></Route>
                             <Route path="/home"><Home /></Route>
                             <Route path="/mat"><MaterialUiSample /></Route>
-                            <Route path="/login"><Login/></Route>
+                            <Route path="/login"><Login /></Route>
                             <Route path="/*"><PageNotFound /></Route>
                         </Switch>
                     </div>
