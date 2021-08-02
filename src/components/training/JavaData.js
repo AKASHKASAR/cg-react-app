@@ -18,7 +18,7 @@ let JavaData = (props) => {
             salary: 30.5
         }
         );
-        
+
         setNewEmp({
             eid: 123,
             ename: '123',
@@ -51,19 +51,12 @@ let JavaData = (props) => {
         setNewEmp({ eid: e.target.value });
     }
     const handleChangeEname = (e) => {
-        setNewEmp({ nname: e.target.value });
+        setNewEmp({ ename: e.target.value });
     }
     const handleChangeSalary = (e) => {
         setNewEmp({ salary: e.target.value });
     }
 
-    // const handleChange = (event) => {
-    //     setNewEmp({ [event.target.id]: event.target.value });
-    //     console.log(event.target.value.id);
-    //     console.log(event.target.value.ename);
-    //     console.log(event.target.value.salary);
-    //     console.log(newEmp.ename);
-    // }
 
     const handleSubmit = (event) => {
         const tempEmp = newEmp;
@@ -76,16 +69,6 @@ let JavaData = (props) => {
         event.preventDefault();
     }
 
-    // const addnewEmployee = () => {
-    //     console.log(`addNewEmployee`);
-    //     console.log(newEmp.ename);
-    //     axios.post(`/addEmployee`, { id: 555, name: '555', salay: 555 })
-    //         .then((response) => {
-    //             console.log(response.data);
-    //         }).catch((error) => {
-    //             console.log(error.message)
-    //         });
-    // }
 
     return (
         <div>
@@ -121,7 +104,7 @@ let JavaData = (props) => {
                     <button type="submit">Add Employee</button>
                 </form>
                 <div>
-                    <p> {newEmp.id} , {newEmp.ename} , {newEmp.salary} </p>
+                    <p> {newEmp.eid} , {newEmp.ename} , {newEmp.salary} </p>
                 </div>
                 <p> New employee added. </p>
             </div>
