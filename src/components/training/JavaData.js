@@ -49,7 +49,7 @@ let JavaData = (props) => {
             });
     }
 
-    const submitGtEmployeById = (event) => {
+    const submitGetEmployeById = (event) => {
         axios.get(`/getEmployee/${emp.id}`)
             .then(
                 (response) => {
@@ -84,12 +84,18 @@ let JavaData = (props) => {
     }
 
     const submitDeleteEmployee = (event) => {
-        axios.delete(`/deleteEmployee/${emp.id}`)
-            .then((response) => {
-                console.log(response.data.name);
-            }).catch((error) => {
-                console.log(error.message)
-            });
+        const userInput = window.confirm("Are you sure to delete the employee?");
+        if (userInput == true) {
+            axios.delete(`/deleteEmployee/${emp.id}`)
+                .then((response) => {
+                    console.log(response.data.name);
+                }).catch((error) => {
+                    console.log(error.message)
+                });
+        } else {
+            console.log("You saved the employee!");
+
+        }
         event.preventDefault();
     }
 
@@ -102,7 +108,7 @@ let JavaData = (props) => {
             <button onClick={onTrigger}>Pass child emp to parent</button>
             <div>
                 <p>Add new Employee</p>
-                <form onSubmit={submitAddEmployee}>
+                <form onSubmit={submitAddEmployee} className="form form-group">
                     <div>
                         <input
                             type="number"
@@ -110,6 +116,7 @@ let JavaData = (props) => {
                             name="id"
                             value={emp.id}
                             placeholder="143" // add for other elements as well 
+                            className="form-control mb-2"
                             onChange={handleEmployee}
                         />
                         <input
@@ -117,6 +124,7 @@ let JavaData = (props) => {
                             id="name"
                             name="name"
                             value={emp.name}
+                            className="form-control mb-2"
                             onChange={handleEmployee}
                         />
                         <input
@@ -124,17 +132,18 @@ let JavaData = (props) => {
                             id="salary"
                             name="salary"
                             value={emp.salary}
+                            className="form-control mb-2"
                             onChange={handleEmployee}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">Add Employee</button>
+                    <button type="submit" className="btn btn-primary" >Add Employee</button>
                 </form>
                 <p> New employee added {emp.id} , {emp.name} , {emp.salary} </p>
             </div>
 
             <div>
                 <p>Update an Employee</p>
-                <form onSubmit={submitUpdateEmployee}>
+                <form onSubmit={submitUpdateEmployee} className="form form-group">
                     <div>
                         <input
                             type="number"
@@ -142,6 +151,7 @@ let JavaData = (props) => {
                             name="id"
                             value={emp.id}
                             placeholder="143" // add for other elements as well 
+                            className="form-control mb-2"
                             onChange={handleEmployee}
                         />
                         <input
@@ -149,6 +159,7 @@ let JavaData = (props) => {
                             id="name"
                             name="name"
                             value={emp.name}
+                            className="form-control mb-2"
                             onChange={handleEmployee}
                         />
                         <input
@@ -156,6 +167,7 @@ let JavaData = (props) => {
                             id="salary"
                             name="salary"
                             value={emp.salary}
+                            className="form-control mb-2"
                             onChange={handleEmployee}
                         />
                     </div>
@@ -168,7 +180,7 @@ let JavaData = (props) => {
 
             <div>
                 <p>Delete an Employee</p>
-                <form onSubmit={submitDeleteEmployee}>
+                <form onSubmit={submitDeleteEmployee} className="form form-group" >
                     <div>
                         <input
                             type="number"
@@ -176,6 +188,7 @@ let JavaData = (props) => {
                             name="id"
                             value={emp.id}
                             placeholder="143" // add for other elements as well 
+                            className="form-control mb-2"
                             onChange={handleEmployee}
                         />
                     </div>
@@ -187,7 +200,8 @@ let JavaData = (props) => {
 
 
             <div>
-                <form onSubmit={submitGtEmployeById}>
+                <p>Get employee by id</p>
+                <form onSubmit={submitGetEmployeById} className="form form-group">
                     <div>
                         <input
                             type="number"
@@ -195,6 +209,7 @@ let JavaData = (props) => {
                             name="id"
                             value={emp.id}
                             onChange={handleEmployee}
+                            className="form-control mb-2"
                         // onChange={handleEmployee}
                         />
                     </div>
