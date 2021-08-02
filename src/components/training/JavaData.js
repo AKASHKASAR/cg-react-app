@@ -19,12 +19,12 @@ let JavaData = (props) => {
         }
         );
 
+        // initilize to prevent undefined error, in case used these fields anywhere else in future 
         setNewEmp({
-            eid: 123,
-            ename: '123',
-            salary: 123
+            id: 0,
+            name: '',
+            salary: 0
         }
-
         );
 
         axios.get(`/getAllEmployees`)
@@ -32,7 +32,7 @@ let JavaData = (props) => {
                 setEmpList(response.data);
             })
 
-        axios.get(`/getEmployee/105`)
+        axios.get(`/getEmployee/123`)
             .then(
                 (response) => {
                     setEmp(response.data);
@@ -47,28 +47,27 @@ let JavaData = (props) => {
         props.parentCallback(childEmp);
     };
 
-    const handleChangeEid = (e) => {
-        setNewEmp({ eid: e.target.value });
-    }
-    const handleChangeEname = (e) => {
-        setNewEmp({ ename: e.target.value });
-    }
-    const handleChangeSalary = (e) => {
-        setNewEmp({ salary: e.target.value });
-    }
+    // handlechange of input fields to bind values to state 
+    const handleChange = e => {
+        setNewEmp({
+            ...newEmp,
+            [e.target.name]: e.target.value
+        });
+        console.log(newEmp.id, newEmp.name, newEmp.salary);
+    };
 
 
+    // invoke post method with handlesubmit 
     const handleSubmit = (event) => {
-        const tempEmp = newEmp;
-        axios.post(`/addEmployee`, tempEmp)
+        console.log(newEmp.id, newEmp.name, newEmp.salary);
+        axios.post(`/addEmployee`, newEmp)
             .then((response) => {
-                console.log(response.data);
+                console.log(response.data.name);
             }).catch((error) => {
                 console.log(error.message)
             });
         event.preventDefault();
     }
-
 
     return (
         <div>
@@ -84,27 +83,30 @@ let JavaData = (props) => {
                     <div>
                         <input
                             type="number"
-                            id="eid"
-                            value={newEmp.eid}
-                            onChange={handleChangeEid}
+                            id="id"
+                            name="id"
+                            value={newEmp.id}
+                            onChange={handleChange}
                         />
                         <input
                             type="text"
-                            id="ename"
-                            value={newEmp.ename}
-                            onChange={handleChangeEname}
+                            id="name"
+                            name="name"
+                            value={newEmp.name}
+                            onChange={handleChange}
                         />
                         <input
                             type="number"
                             id="salary"
+                            name="salary"
                             value={newEmp.salary}
-                            onChange={handleChangeSalary}
+                            onChange={handleChange}
                         />
                     </div>
                     <button type="submit">Add Employee</button>
                 </form>
                 <div>
-                    <p> {newEmp.eid} , {newEmp.ename} , {newEmp.salary} </p>
+                    <p> {newEmp.id} , {newEmp.name} , {newEmp.salary} </p>
                 </div>
                 <p> New employee added. </p>
             </div>
