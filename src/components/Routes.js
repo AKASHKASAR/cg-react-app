@@ -37,7 +37,7 @@ const Routes = () => {
                     </div>
                 </div>
             </Router>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
