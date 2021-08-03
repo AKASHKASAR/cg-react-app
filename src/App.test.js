@@ -2,12 +2,19 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import Calc from './components/training/Calc';
 
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/Home/);
+  expect(linkElement).toBeInTheDocument(); // matcher 
+});
 
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/Welcome/);
+  expect(linkElement).toBeInTheDocument();
+});
+
+// jasmine, jest 
 
 describe(`Test Employee Component`, () => {
 
@@ -20,5 +27,10 @@ describe(`Test Employee Component`, () => {
     let num = Calc();
     expect(num).not.toBe(5);
   });
-
 });
+
+
+
+
+
+
