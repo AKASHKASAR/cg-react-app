@@ -9,9 +9,7 @@ console.log(`store invoked.`);
 
 const store = createStore(Reducer, { data: `Some data to start store...` });
 
-
-// let store = createStore
-//     (Reducer, { data: 'Initial data from the store' });
+// const store = createStore(Reducer);
 
 export default store;
 

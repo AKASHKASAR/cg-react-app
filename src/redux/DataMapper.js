@@ -9,6 +9,7 @@ import ReduxApp from './ReduxApp';
 
 // maps current state data to store object 
 const mapStateToProps = (state) => {
+    // state.data = 'Some data';
     console.log('state mapped to props, state.data: ' + state.data);
     return {
         data: state.data
