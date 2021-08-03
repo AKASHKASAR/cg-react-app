@@ -11,7 +11,7 @@ const ReduxApp = (props) => {
     }
     return (
         <div>
-            <h1 className="display-1 text-primary">Welcome Component</h1>
+            <h1 className="display-1 text-primary">Redux App Component</h1>
             <p>
                 {props.data}
                 {' '}

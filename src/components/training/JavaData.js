@@ -92,7 +92,7 @@ let JavaData = (props) => {
 
     const submitDeleteEmployee = (event) => {
         const userInput = window.confirm("Are you sure to delete the employee?");
-        if (userInput == true) {
+        if (userInput == true) { // ignore 
             axios.delete(`/deleteEmployee/${emp.id}`)
                 .then((response) => {
                     console.log(response.data.name);

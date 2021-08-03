@@ -4,8 +4,14 @@ import Reducer from "./reducer";
 
 console.log(`store invoked.`);
 
-let store = createStore
-    (Reducer, { data: 'Initial data from the store' });
+
+// step 2 . create store 
+
+const store = createStore(Reducer, { data: `Some data to start store...` });
+
+
+// let store = createStore
+//     (Reducer, { data: 'Initial data from the store' });
 
 export default store;
 
