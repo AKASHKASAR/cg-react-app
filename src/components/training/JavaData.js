@@ -6,10 +6,15 @@ let JavaData = (props) => {
     const [parentEmp, setParentEmp] = useState({}); // from props  
     const [parentEmpHike, setParentEmpHke] = useState(0); // from props 
     const [childEmp, setChildEmp] = useState({}); // child state   
-    const [emp, setEmp] = useState({}); // from axios 
+    const [emp, setEmp] = useState({
+        id: 0,
+        name: '',
+        salary: 0
+    }); // from axios 
 
     // initilize states to prevent undefined error, in case used these fields anywhere else in future 
-    useEffect(() => {
+    useEffect(
+        () => {
         setParentEmp(props.parentEmp); // 4
         setParentEmpHke(props.parentEmpHike);
         setChildEmp({
@@ -18,12 +23,12 @@ let JavaData = (props) => {
             salary: 30.5
         }
         );
-        setEmp({
-            id: 0,
-            name: '',
-            salary: 0
-        }
-        );
+        // setEmp({
+        //     id: 0,
+        //     name: '',
+        //     salary: 0
+        // }
+        // );
 
     }, []);
 
@@ -39,7 +44,19 @@ let JavaData = (props) => {
         });
     };
 
-    const getAllEmployees = (e) => {
+    const submitAddEmployee = (event) => {
+        console.log(event.target.salary.name);
+        console.log(event.target.salary.value);
+        axios.post(`/addEmployee`, emp)
+            .then((response) => {
+                console.log(response.data.name);
+            }).catch((error) => {
+                console.log(error.message)
+            });
+        event.preventDefault();
+    }
+
+    const submitGetAllEmployees = (e) => {
         console.log();
         axios.get(`/getAllEmployees`)
             .then((response) => {
@@ -60,17 +77,7 @@ let JavaData = (props) => {
             .catch((error) => {
                 console.log(error.message);
             });
-        event.preventDefault();
-    }
-
-    const submitAddEmployee = (event) => {
-        axios.post(`/addEmployee`, emp)
-            .then((response) => {
-                console.log(response.data.name);
-            }).catch((error) => {
-                console.log(error.message)
-            });
-        event.preventDefault();
+        event.preventDefault(); // required in submit methods 
     }
 
     const submitUpdateEmployee = (event) => {
@@ -220,7 +227,7 @@ let JavaData = (props) => {
                 </div>
                 <div>
                     <p>Get all employees data </p>
-                    <button type="submit" className="btn btn-primary" onClick={getAllEmployees}>Get All Employees</button>
+                    <button type="submit" className="btn btn-primary" onClick={submitGetAllEmployees}>Get All Employees</button>
                     <p>All Employee Data</p>
                     <div> {empList.map(e => <p> {e.id}, {e.name} {e.salary} </p>)} </div>
                 </div>

@@ -1,6 +1,10 @@
-import { GET_EMP_BY_ID } from "./types";
 
-export const getEmployeeById = (payload) => {
-    console.log(`getEmployeeById`);
-    return { type: GET_EMP_BY_ID, payload };
+const Action = (newData) => {
+    console.log('Action was taken.');
+    return {
+        data: newData,
+        type: 'DATA_CHANGED'
+    }
 }
+export default Action;
+

@@ -22,9 +22,10 @@ const Header = () => (
           <Link className="nav-link" to="/mat">Material-UI</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/article">Article</Link>
+          <Link className="nav-link" to="/datamapper">Data Mapper</Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item align-end"> 
+        {/* align right this item  */}
           <Link className="nav-link" to="/login">Login</Link>
         </li>
       </ul>
@@ -37,3 +38,4 @@ export default Header;
 
 
 
+ 

@@ -1,35 +1,14 @@
-import { GET_EMP_BY_ID } from "./types";
 
-const initialState = {
-    articles: []
-};
-
-const rootReducer = (state = initialState, action) => {
-    console.log(`rootReducer rootReducer.js`);
-    // create more actions here - 
-    if (action.type === GET_EMP_BY_ID) {
-        return Object.assign({}, state, {
-            articles: state.articles.concat(action.payload)
-        });
+const Reducer = (state, action) => {
+    console.log(`Reducer invoked.`);
+    switch (action.type) {
+        case 'DATA_CHANGED':
+            console.log('Data passed.');
+            return Object.assign({}, state, { data: action.data });
+        default:
+            console.log('Default value was presented.');
+            return state;
     }
-    return state;
 }
-
-export default rootReducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Reducer;
 
