@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from "axios";
-
+// import JwtToken from './JwtToken';
 let Login = (props) => {
 
     const history = useHistory();
@@ -24,7 +24,6 @@ let Login = (props) => {
         }, []);
 
     const handleAppUser = (event) => {
-        console.log(event.target.name);
         console.log(event.target.value);
         setAppUser({
             ...AppUser,
@@ -34,18 +33,21 @@ let Login = (props) => {
 
     const submitAppUser = (event) => {
         console.log(AppUser.username);
-        console.log(AppUser.password);
         axios.post(`/login`, AppUser)
             .then((response) => {
-                console.log(response.data.name);
+                localStorage.setItem('token', response.data);
+                console.log(response.data);
+                if(response.data !== 'thisIsNotTheValidToken')
+                history.push('/empdata');
             }).catch((error) => {
                 console.log(error.message)
             });
-        history.push('/home');
+        // history.push('/empdata');
         event.preventDefault();
     }
     return (
         <div className="container">
+      <h1 className="display-1 text-primary">Login Component</h1>
             <div className="row">
                 <form className="form form-group form-dark col-sm-6 mt-3" onSubmit={submitAppUser}>
                     <div className="row mb-3">
@@ -80,6 +82,9 @@ let Login = (props) => {
                     </div>
                 </form>
             </div>
+            {/* <div>
+            <JwtToken/> 
+            </div> */}
         </div >
     )
 }

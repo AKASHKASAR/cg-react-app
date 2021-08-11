@@ -10,7 +10,7 @@ import Footer from './Footer';
 import Welcome from './training/Welcome';
 import Login from './training/Login';
 import DataMapper from '../redux/DataMapper';
-import Redirection from './sprint/Redirection';
+import EmpData from './sprint/EmpData';
 const Routes = () => {
     return (
         <div>
@@ -31,7 +31,7 @@ const Routes = () => {
                             <Route path="/home"><Home /></Route>
                             <Route path="/mat"><MaterialUiSample /></Route>
                             <Route path="/datamapper"> <DataMapper /> </Route>
-                            <Route path="/redirection"> <Redirection /> </Route>
+                            <Route path="/empdata"> <EmpData /> </Route>
                             <Route path="/login"><Login /></Route>
                             <Route path="/*"><PageNotFound /></Route>
                         </Switch>
