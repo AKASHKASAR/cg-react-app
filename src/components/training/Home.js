@@ -6,9 +6,10 @@ function Home() {
     <div>
       <h1 className="display-1 text-primary">Home Component</h1>
       <p> </p>
-      <Link to={'/redirection'}>
-                    <button >Redirection</button>
-                </Link>
+      <p> </p>
+      <Link to={'/login'}>
+        <button >Login</button>
+      </Link>
     </div>
   );
 }
