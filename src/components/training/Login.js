@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from "axios";
-// import JwtToken from './JwtToken';
 let Login = (props) => {
 
     const history = useHistory();
@@ -82,9 +81,6 @@ let Login = (props) => {
                     </div>
                 </form>
             </div>
-            {/* <div>
-            <JwtToken/> 
-            </div> */}
         </div >
     )
 }

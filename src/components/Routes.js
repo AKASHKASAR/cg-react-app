@@ -17,10 +17,6 @@ const Routes = () => {
             <Router>
                 <div>
                     <Header></Header>
-                    {/* <Link to="/home">Home</Link> {'  '}
-                <Link to="/emp">Employee</Link> {'  '}
-                <Link to="/form">MyForm</Link> {'  '}
-                <Link to="/mat">MaterialUiSample</Link> {'  '} */}
                     <div className="container">
                         <Switch>
                             {/* add an exact path to base url  */}
