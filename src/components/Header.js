@@ -24,6 +24,9 @@ const Header = () => (
         <li className="nav-item">
           <Link className="nav-link" to="/datamapper">Data Mapper</Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/redirection">Redirection</Link>
+        </li>
         <li className="nav-item align-end"> 
         {/* align right this item  */}
           <Link className="nav-link" to="/login">Login</Link>
