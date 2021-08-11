@@ -10,9 +10,8 @@ let Login = (props) => {
         id: 0,
         name: '',
         salary: 0
-    }); // from axios 
-
-    // initilize states to prevent undefined error, in case used these fields anywhere else in future 
+    }); 
+     
     useEffect(
         () => {
             setAppUser({
