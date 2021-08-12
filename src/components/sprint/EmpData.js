@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from 'react';
 
+// use localStorage.setItem() and 
+// localStorage.getItem() to store and retrieve jwt token
+
 let EmpData = (props) => {
     const [emp, setEmp] = useState({
         eid: 0,

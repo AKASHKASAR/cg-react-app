@@ -2,6 +2,9 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from "axios";
+
+// use history.push() to redirect to another component.
+
 let Login = (props) => {
 
     const history = useHistory();
