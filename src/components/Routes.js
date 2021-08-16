@@ -11,6 +11,8 @@ import Welcome from './training/Welcome';
 import Login from './training/Login';
 import DataMapper from '../redux/DataMapper';
 import EmpData from './sprint/EmpData';
+import CgCardMore from './sprint/CgCardMore';
+
 const Routes = () => {
     return (
         <div>
@@ -28,6 +30,7 @@ const Routes = () => {
                             <Route path="/mat"><MaterialUiSample /></Route>
                             <Route path="/datamapper"> <DataMapper /> </Route>
                             <Route path="/empdata"> <EmpData /> </Route>
+                            <Route path="/cgCardMore"><CgCardMore /></Route>
                             <Route path="/login"><Login /></Route>
                             <Route path="/*"><PageNotFound /></Route>
                         </Switch>

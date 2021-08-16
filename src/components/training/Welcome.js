@@ -1,4 +1,5 @@
 import React from 'react';
+import CgCard from '../sprint/CgCard';
 
 // Function component 
 
@@ -11,6 +12,9 @@ let Welcome = (props) => {
         <div>
             <h1 className="display-1 text-primary">Welcome Component</h1>
             <p> {fun()} </p>
+            <div>
+                <CgCard />
+            </div>
         </div>
     );
 }
